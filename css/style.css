@@ -1,0 +1,132 @@
+:root {
+  --navy: #0f2545;
+  --navy-light: #1c3a63;
+  --accent: #2f6fed;
+  --green: #1e8e5a;
+  --red: #c0392b;
+  --amber: #b7791f;
+  --gray: #6b7280;
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --border: #e2e6ef;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: #1a1f2b;
+}
+#app { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ---------- Auth screen ---------- */
+.auth-wrap {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+}
+.auth-card {
+  background: var(--card); padding: 32px; border-radius: 14px; width: 360px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+.auth-card h1 { font-size: 20px; margin: 0 0 4px; }
+.auth-card p.sub { color: var(--gray); margin: 0 0 20px; font-size: 13px; }
+.auth-card label { font-size: 12px; font-weight: 600; color: var(--navy); display:block; margin: 12px 0 4px; }
+.auth-card input, .auth-card select {
+  width: 100%; padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px;
+}
+.auth-card button { width: 100%; margin-top: 18px; }
+.switch-link { text-align: center; margin-top: 14px; font-size: 13px; }
+.switch-link a { color: var(--accent); cursor: pointer; text-decoration: none; font-weight: 600; }
+.error-box { background: #fdecea; color: var(--red); padding: 8px 10px; border-radius: 8px; font-size: 13px; margin-top: 10px; }
+
+/* ---------- Shell ---------- */
+.topbar {
+  background: var(--navy); color: #fff; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar .brand { font-weight: 700; font-size: 15px; }
+.topbar .brand span { color: #9fc0ff; font-weight: 400; font-size: 12px; display:block; }
+.topbar .who { font-size: 13px; display: flex; align-items: center; gap: 12px; }
+.role-badge {
+  background: var(--accent); padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.topbar button.logout {
+  background: transparent; border: 1px solid rgba(255,255,255,.4); color: #fff; padding: 6px 12px;
+  border-radius: 8px; cursor: pointer; font-size: 12px;
+}
+
+.layout { display: flex; flex: 1; min-height: 0; }
+nav.sidebar {
+  width: 210px; background: #fff; border-right: 1px solid var(--border); padding: 16px 10px;
+}
+nav.sidebar a {
+  display: block; padding: 9px 12px; margin-bottom: 4px; border-radius: 8px; color: #33415c;
+  text-decoration: none; font-size: 14px; cursor: pointer;
+}
+nav.sidebar a:hover { background: #eef2fb; }
+nav.sidebar a.active { background: var(--accent); color: #fff; font-weight: 600; }
+nav.sidebar .section-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--gray);
+  margin: 14px 10px 6px;
+}
+
+main.content { flex: 1; padding: 24px 28px; overflow-y: auto; }
+main.content h2 { margin-top: 0; }
+
+/* ---------- Cards / tables ---------- */
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 18px;
+}
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+.stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.stat .num { font-size: 26px; font-weight: 700; color: var(--navy); }
+.stat .label { font-size: 12px; color: var(--gray); }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--gray); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .03em; }
+tr:hover td { background: #f8faff; }
+
+.badge { padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; display: inline-block; }
+.badge-Pending { background: #fef3cd; color: var(--amber); }
+.badge-Approved { background: #e3f3ea; color: var(--green); }
+.badge-Rejected { background: #fdecea; color: var(--red); }
+.badge-Released { background: #e6edff; color: var(--accent); }
+.badge-Returned { background: #e9e9ff; color: #5b4fc4; }
+.badge-Overdue { background: #fde3e3; color: #a11; }
+.badge-Closed { background: #eee; color: #555; }
+.badge-Available { background: #e3f3ea; color: var(--green); }
+.badge-Borrowed { background: #e6edff; color: var(--accent); }
+.badge-Maintenance { background: #fef3cd; color: var(--amber); }
+.badge-Damaged { background: #fdecea; color: var(--red); }
+
+button {
+  background: var(--accent); color: #fff; border: none; padding: 8px 14px; border-radius: 8px;
+  cursor: pointer; font-size: 13px; font-weight: 600;
+}
+button:hover { filter: brightness(0.94); }
+button:disabled { background: #cfd6e4; cursor: not-allowed; }
+button.secondary { background: #eef1f8; color: var(--navy); }
+button.danger { background: var(--red); }
+button.small { padding: 5px 10px; font-size: 12px; margin-right: 6px; }
+
+.toast {
+  position: fixed; bottom: 20px; right: 20px; background: var(--navy); color: #fff; padding: 12px 18px;
+  border-radius: 10px; font-size: 13px; box-shadow: 0 8px 24px rgba(0,0,0,.25); z-index: 999;
+}
+.toast.error { background: var(--red); }
+.toast.success { background: var(--green); }
+
+.denied { text-align: center; padding: 60px 20px; color: var(--gray); }
+.denied h2 { color: var(--red); }
+
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(10,15,30,.45); display: flex; align-items: center; justify-content: center; z-index: 500;
+}
+.modal { background: #fff; border-radius: 12px; padding: 22px; width: 380px; }
+.modal h3 { margin-top: 0; }
+.modal textarea { width: 100%; min-height: 70px; border: 1px solid var(--border); border-radius: 8px; padding: 8px; font-size: 13px; }
+.modal .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+
+.empty { color: var(--gray); font-size: 13px; padding: 14px 0; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.muted { color: var(--gray); font-size: 12px; }
